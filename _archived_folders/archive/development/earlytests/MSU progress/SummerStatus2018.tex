@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage{hyperref}
+
+
+
+
+\title{SOAR-Adaptive-Module Optical Spectrograph (SAMOS): Data Reduction Pipeline Status}
+\author{Dana Koeppe}
+
+
+\begin{document}
+\maketitle
+
+\begin{itemize}
+  \item[] Award Number: 1611276
+  \item[] MSU Account Number: RC107223
+  \item[] Project Title: Collaborative Research: A New Optical Instrument to Provide Follow-Up Observations for Large Synoptic Survey Telescope Observations
+  \item[] Report Type: Annual Project Report
+  \item[] PI: Massimo Robberto
+  \item[] Awardee: Johns Hopkins University
+  \item[] Program Officer Name: Peter Kurczynski
+  \item[] Program Officer Email: pkurczynnsf.go
+  \item[] Program Officer Phone Number: (703)292-7248
+\end{itemize}
+
+\section{Introduction}
+
+
+The SAMOS Data Reduction Pipeline is being written by Michigan State University PhD student Dana Koeppe, under the supervision of Co-PI Megan Donahue, and can be accessed via  \href{https://github.com/SAMOS-Pipeline/SAMOS_pipeline_draft1}{GitHub}.  The documentation is up to date and explains the usage and methods of the pipeline.
+
+The SAMOS DRP is written in Python3, and based on the  \href{https://github.com/siriobelli/flame}{Flame DRP}, written in IDL by \href{https://arxiv.org/pdf/1710.05924.pdf}{Belli, Contursi, and Davies (2017)} for reduction of near-infrared and optical multislit spectroscopic data.  The development of SAMOS is set to go through August 31, 2019.
+
+Koeppe is paid as a full time graduate assistant and we have a clear goal for pipeline development through the final year of research.
+
+
+\section{Current Pipeline Status}
+
+The most current version of the pipeline on GitHub is able to handle reduction of test data through slit identification.  There are 9 main programs and modules in the repository.  The pipeline reads in sample FITS data from LDSS3 at Magellan, and after sorting the data based on observation type, trims, bias corrects, and normalizes the data.  After the initial data cleaning, the code identifies slits locations from the appropriate mask file.
+
+There is also a development branch which includes cleaning of cosmic rays which has not been merged with the master branch.
+
+\section{Current Development Focus}
+
+The `Reorganize' branch for the SAMOS DRP is meant to organize the reduction modules and data structures for more readability and efficiency.  The user manual will updated to reflect the organizational changes when running and using the pipeline.  We also are working on making the slit identification more accurate and efficient.  Once this task is completed, we can work on extracting individual spectra for analysis.
+
+
+\section{SAMOS Software Meeting}
+
+June 24-26, Donahue and Koeppe met with SAMOS collaborators in Baltimore to discuss current software status and development plans.  During the meeting, groups from Johns Hopkins and Rochester Institute of technology described the setup of the instrument.  The topics of discussion included plans for data storage, requirements for calibration, and for the interface between SAMOS and the SOAR Adaptive Module Imager.
+After presenting the current status of the reduction pipeline, Koeppe discussed possible features and requirements for the data reduction software with Dmitry Vorobiev and Jonathan Hoover from RIT.  RIT and MSU plan to share FITS data in order use them as guides for SAMOS FITS files and their subsequent data reduction.
+We concluded the meeting with creation of a Trello and Google Drive account to keep track of our progress and tasks, and to stay in communication.
+
+\section{Future Plans}
+
+The extraction of the spectra from the data frames will be the most challenging part of writing the pipeline.  The calculation for the warping of coordinates when mapping the spectra onto the detector will be the focus for this reduction step.  The algorithm used for this task will be based on Dan Kelson's analysis in his 2005 paper \href{http://iopscience.iop.org/article/10.1086/375502/pdf}{Optimal Techniques in Two-dimensional Spectroscopy:
+Background Subtraction for the 21st Century}.
+
+
+
+
+
+\end{document}

@@ -1,0 +1,180 @@
+# SAMOS Spectroscopy Pipeline Configuration
+#
+# This configuration file contains all parameters for automated spectroscopic
+# data reduction. Copy this file and modify for your specific observation.
+
+# ==============================================================================
+# DATA LOCATIONS
+# ==============================================================================
+
+data:
+  # Directory containing raw FITS files
+  raw_directory: "/path/to/raw/data"
+
+  # Target name (used for organizing outputs)
+  target_name: "ABELL3120"
+
+  # Observing mode
+  mode: "SAMI_manual_Mask_T00_Low_Red"
+
+
+# ==============================================================================
+# OUTPUT CONFIGURATION
+# ==============================================================================
+
+output:
+  # Base directory for all outputs
+  base_directory: "/path/to/reduced/data"
+
+  # Subdirectories will be created automatically:
+  #   - calibrations/    : Master bias, flat, arc
+  #   - traces/          : Slit definitions and trace fitting
+  #   - extracted_slits/ : Individual slit cutouts
+  #   - final_products/  : 1D spectra, wavelength calibrated
+  #   - qa_plots/        : Quality assessment plots
+
+
+# ==============================================================================
+# CALIBRATION FRAMES
+# ==============================================================================
+
+calibrations:
+  # Bias frames
+  use_bias: true
+  bias_pattern: "bias*.fits"    # File pattern for bias frames
+  bias_combine: "median"         # Combination method: median or mean
+
+  # Flat field frames
+  use_flat: true
+  flat_pattern: "flat*.fits"    # File pattern for flat frames
+  flat_combine: "median"         # Combination method
+  flat_normalize: true           # Normalize to median=1
+
+  # Dark frames (optional)
+  use_dark: false
+  dark_pattern: "dark*.fits"
+
+
+# ==============================================================================
+# ARC LAMP CONFIGURATION
+# ==============================================================================
+
+arc_lamp:
+  # Main arc lamp exposure (used for trace detection)
+  arc_file: "calibration.032.fits"
+
+  # Arc lamp dark/background (optional, e.g., DMD off exposure)
+  # Set to null if not available
+  arc_dark_file: "calibration.035.fits"
+
+  # Lamp type for wavelength calibration
+  lamp_type: "HgArNe"  # Options: HgArNe, HgAr, Ne, Ar
+
+
+# ==============================================================================
+# TRACE DETECTION
+# ==============================================================================
+
+trace_detection:
+  # X-range for collapsing image to detect traces (pixels)
+  # Use a region with strong arc lines
+  x_range: [1500, 2000]
+
+  # Peak detection threshold
+  # Higher values = fewer false detections
+  # Lower values = detect fainter slits
+  peak_threshold: 400000.0
+
+  # Minimum distance between peaks (pixels)
+  peak_distance: 3
+
+  # Margin for sky regions above/below spectrum (pixels)
+  margin: 12
+
+  # Resolve overlapping slits automatically
+  auto_resolve_overlaps: true
+
+
+# ==============================================================================
+# COSMIC RAY REMOVAL
+# ==============================================================================
+
+cosmic_rays:
+  # Apply cosmic ray removal
+  enable: true
+
+  # L.A.Cosmic parameters
+  contrast: 5.0              # Contrast threshold
+  cr_threshold: 20.0         # Detection threshold (sigma)
+  neighbor_threshold: 5.0    # Neighbor pixel threshold
+  readnoise: 3.0             # CCD readout noise (e-)
+  effective_gain: 2.0        # Effective gain (e-/ADU)
+
+
+# ==============================================================================
+# SCIENCE FRAMES
+# ==============================================================================
+
+science:
+  # File pattern for science exposures
+  science_pattern: "target*.fits"
+
+  # Combine multiple exposures
+  combine_exposures: false
+  combine_method: "median"   # median or mean
+
+
+# ==============================================================================
+# WAVELENGTH CALIBRATION (Future)
+# ==============================================================================
+
+wavelength_calibration:
+  # Enable wavelength calibration
+  enable: false
+
+  # Reference slit for initial calibration
+  reference_slit: 10
+
+  # Line list
+  line_list: "calibration_data/line_lists/goodman_lines/HgArNe.dat"
+
+  # Polynomial order for wavelength solution
+  poly_order: 3
+
+  # Use PypeIt for wavelength calibration
+  use_pypeit: false
+
+
+# ==============================================================================
+# SPECTRAL EXTRACTION (Future)
+# ==============================================================================
+
+extraction:
+  # Extraction method
+  method: "optimal"  # Options: optimal, boxcar
+
+  # Boxcar extraction width (pixels)
+  boxcar_width: 10
+
+  # Optimal extraction parameters
+  optimal:
+    trace_polynomial_order: 3
+    sky_regions: "auto"  # or specify: [[y0, y1], [y2, y3]]
+
+
+# ==============================================================================
+# QUALITY CONTROL
+# ==============================================================================
+
+quality_control:
+  # Generate QA plots
+  create_qa_plots: true
+
+  # Plot formats
+  plot_format: "png"  # png, pdf, or both
+
+  # DPI for saved plots
+  plot_dpi: 150
+
+  # Show plots interactively
+  interactive: false

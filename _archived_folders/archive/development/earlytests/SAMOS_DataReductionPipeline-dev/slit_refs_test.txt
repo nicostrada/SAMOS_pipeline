@@ -1,0 +1,3 @@
+# file written using
+# 'PIPELINE.SAMOS_mods.identify_slits_from_nothing function
+# first column is the row pixel for the top of each slit, and the second column is the slit height. 

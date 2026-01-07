@@ -1,0 +1,11 @@
+## CSV MS-Excel compatible file
+## MACSPEC Mtable/writeCSV is source
+SLIT,X1,X2,Y1,Y2,TARGTYPE,TARGNAME
+0,100,110,374,378,unknown,unknown
+1,182,192,387,391,unknown,unknown
+2,293,302,325,329,unknown,unknown
+3,330,340,467,471,unknown,unknown
+4,404,414,317,321,unknown,unknown
+5,439,449,359,363,unknown,unknown
+6,618,628,192,196,unknown,unknown
+7,605,615,485,489,unknown,unknown

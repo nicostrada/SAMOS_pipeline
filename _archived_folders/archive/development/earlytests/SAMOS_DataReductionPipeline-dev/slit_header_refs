@@ -1,0 +1,8 @@
+#header-style slit location references to put in fake SAMOS data.
+
+SLIT1 = [266:337,1:2883]
+SLIT2 = [440:511,1:2883]
+SLIT3 = [557:628,1:2883]
+SLIT4 = [774:842,1:2883]
+SLIT5 = [873:912,1:2883]
+SLIT6 = [930:970,1:2883]
