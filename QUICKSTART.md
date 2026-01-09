@@ -31,10 +31,10 @@ jupyter lab
 ```
 
 Work through notebooks in order:
-1. `01_initial_inspection.ipynb` - Look at your raw data
-2. `02_calibration_frames.ipynb` - Create master bias/flat (future)
-3. `03_trace_identification.ipynb` - Find spectral traces (future)
-4. Continue through the workflow...
+1. `01_initial_inspection.ipynb` - Initial reduction and slit extraction
+2. `02_visual_qa.ipynb` - Visual QA and inspection
+3. `03_spectroscopy_pypeit.ipynb` - Spectroscopic reduction with wavelength calibration
+4. `04_visualization.ipynb` - Interactive visualization
 
 ### Option B: Automated Mode (Production)
 
@@ -89,7 +89,8 @@ Pipeline/
 ├── notebooks/          # Interactive analysis
 ├── scripts/            # Automated pipelines
 ├── configs/            # Configuration templates
-└── calibration_data/   # Reference line lists, etc.
+├── docs/               # Documentation
+└── _archived_folders/  # Historical code and data
 
 Your Data (outside Pipeline/):
 ~/SAMOS_Data/

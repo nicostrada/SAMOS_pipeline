@@ -27,8 +27,8 @@ jupyter lab
 | # | Notebook | Status | Time | Purpose |
 |---|----------|--------|------|---------|
 | 01 | initial_inspection | ✅ Ready | 5 min | Reduce raw data → spec_*.fits |
-| 02 | visual_qa | 🔄 Coming | 10 min | QA and inspection |
-| 03 | spectroscopy_pypeit | 🔄 Coming | 15 min | Extract + wavelength cal |
+| 02 | visual_qa | ✅ Ready | 10 min | QA and inspection |
+| 03 | spectroscopy_pypeit | ✅ Ready | 15 min | Extract + wavelength cal |
 | 04 | visualization | ✅ Ready | Variable | Interactive jdaviz |
 
 **Total time (when complete): ~30-45 minutes**
@@ -235,4 +235,4 @@ python
 
 ---
 
-Last updated: December 15, 2025
+Last updated: January 9, 2026

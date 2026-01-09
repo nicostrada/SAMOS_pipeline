@@ -47,13 +47,10 @@ pip install -e .[pypeit]   # PypeIt integration
    ```
 
 2. **Run notebooks in order**:
-   - `01_initial_inspection.ipynb` - Visualize raw data
-   - `02_calibration_frames.ipynb` - Create master bias/flat
-   - `03_trace_identification.ipynb` - Detect spectral traces
-   - `04_trace_extraction.ipynb` - Extract 2D spectra
-   - `05_wavelength_calibration.ipynb` - Wavelength solution
-   - `06_apply_calibration.ipynb` - Apply to all slits
-   - `07_visualization.ipynb` - Inspect final products
+   - `01_initial_inspection.ipynb` - Initial reduction and slit extraction
+   - `02_visual_qa.ipynb` - Visual QA and inspection
+   - `03_spectroscopy_pypeit.ipynb` - Spectroscopic reduction with wavelength calibration
+   - `04_visualization.ipynb` - Interactive visualization with jdaviz
 
 3. **Save your parameters** to a configuration file for automated runs
 
@@ -90,7 +87,7 @@ Pipeline/
 │   └── pipeline/               # Automated pipeline orchestration
 │
 ├── notebooks/                  # Interactive Jupyter notebooks
-│   ├── spectroscopy/          # Spectroscopy workflow (01-07)
+│   ├── spectroscopy/          # Spectroscopy workflow (01-04)
 │   └── imaging/               # Imaging workflow (future)
 │
 ├── scripts/                    # Command-line executables
@@ -99,14 +96,14 @@ Pipeline/
 ├── configs/                    # Configuration templates
 │   └── spectroscopy_default.yaml
 │
-├── calibration_data/           # Reference calibration files
-│   └── line_lists/            # Wavelength calibration line lists
-│
 ├── docs/                       # Documentation
 │   ├── user_guide/
-│   └── developer_guide/
+│   ├── developer_guide/
+│   ├── reference_plots/
+│   ├── presentations/
+│   └── project_history/
 │
-└── examples/                   # Example datasets and workflows
+└── _archived_folders/          # Historical code and data
 ```
 
 ## Usage Examples
@@ -279,7 +276,7 @@ make html
 
 ## Support
 
-- **Issues**: Report bugs at [GitHub Issues](https://github.com/samos/pipeline/issues)
+- **Issues**: Report bugs at [GitHub Issues](https://github.com/nicostrada/SAMOS_pipeline/issues)
 - **Questions**: Contact the SAMOS team
 - **Documentation**: See `docs/` directory
 
@@ -297,18 +294,20 @@ If you use this pipeline in your research, please cite:
   title = {SAMOS Data Reduction Pipeline},
   year = {2025},
   version = {2.0.0},
-  url = {https://github.com/samos/pipeline}
+  url = {https://github.com/nicostrada/SAMOS_pipeline}
 }
 ```
 
 ## Changelog
 
-### Version 2.0.0 (2025-01-15)
+### Version 2.0.0 (2025-01-09)
 - Complete restructuring into modular Python package
-- Added automated pipeline scripts
+- Created 4 production-ready notebooks for complete workflow
+- Implemented spectral extraction and wavelength calibration modules
+- Integrated PypeIt for wavelength calibration
 - Separated interactive notebooks from source code
 - Added configuration file support
-- Prepared for PypeIt integration
+- Professional package structure with proper documentation
 
 ### Version 1.0.0 (2024)
 - Initial notebook-based pipeline

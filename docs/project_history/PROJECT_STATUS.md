@@ -1,6 +1,6 @@
 # SAMOS Pipeline - Project Status
 
-**Last Updated:** December 16, 2025
+**Last Updated:** January 9, 2026
 **Version:** 2.0.0
 **Status:** ✅ Production Ready
 
@@ -255,11 +255,11 @@ print(f"✓ Processed {len(results)} slits")
 
 ### Migration History
 
-- **Dec 15:** Initial restructuring (Class_SAMOS → modular package)
-- **Dec 15:** Notebook updates and PypeIt integration
-- **Dec 15:** Workflow cleanup (7 → 2 notebooks)
-- **Dec 16:** Created notebooks 02 and 03 (2 → 4 notebooks)
-- **Dec 16:** Pipeline folder cleanup
+- **Jan 9, 2026:** Initial commit to GitHub (version 2.0.0)
+- **Previous:** Initial restructuring (Class_SAMOS → modular package)
+- **Previous:** Notebook updates and PypeIt integration
+- **Previous:** Workflow cleanup (7 → 4 notebooks)
+- **Previous:** Pipeline folder cleanup and organization
 
 ---
 
@@ -532,7 +532,7 @@ The SAMOS Pipeline is **production-ready** for spectroscopic data reduction. Use
 
 ---
 
-**Last updated:** December 16, 2025
+**Last updated:** January 9, 2026
 **Status:** ✅ Production Ready
 **Version:** 2.0.0
 **Contact:** SAMOS Team

@@ -305,4 +305,4 @@ pip install -r requirements.txt
 
 ---
 
-Last updated: December 15, 2025
+Last updated: January 9, 2026
